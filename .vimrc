@@ -58,6 +58,12 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 vnoremap > >gv
 vnoremap < <gv
 
+" Movement in insert mode
+inoremap <C-h> <C-O>h
+inoremap <C-j> <C-O>j
+inoremap <C-k> <C-O>k
+inoremap <C-l> <C-O>l
+
 " NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
