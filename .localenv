@@ -1,0 +1,69 @@
+export TERM=xterm-256color
+export PATH=/home/dustinw/bin:$PATH
+export LIBPATH=$LIBPATH:/home/dustinw/Lib
+export GOPRIVATE=github.ibm.com/open-z/sys
+export TMPDIR=/home/dustinw/tmp
+
+### ZOSOpenTools
+
+. /home/dustinw/zopen/etc/zopen-config
+
+### GO SELECT
+
+if [[ $- == *i* ]]; then
+    GO_DIR=/home/dustinw/GoVersions
+    go-select $GO_DIR
+    selected=$GO_DIR/selected
+    if [[ -f $selected ]]; then
+        source $selected
+    fi
+    if [[ -f $GOROOT/go-build-zos/envsetup ]]; then
+          source $GOROOT/go-build-zos/envsetup
+    else
+          echo "Couldnt find go-build-zos..."
+    fi
+fi
+
+### BASH PROMPT
+
+# Colours
+white_fg="\001$(tput setaf 15)\002"
+orange_fg="\001$(tput setaf 208)\002"
+darkorange_fg="\001$(tput setaf 166)\002"
+darkorange_bg="\001$(tput setab 166)\002"
+lightgrey_fg="\001$(tput setaf 250)\002"
+grey_fg="\001$(tput setaf 240)\002"
+grey_bg="\001$(tput setab 240)\002"
+darkgrey_fg="\001$(tput setaf 238)\002"
+darkgrey_bg="\001$(tput setab 238)\002"
+extradarkgrey_fg="\001$(tput setaf 236)\002"
+extradarkgrey_bg="\001$(tput setab 236)\002"
+reset="\001$(tput sgr0)\002"
+arrow="\001\356\202\002\260"
+lambda="\001\316\002\273"
+
+unset PS1
+PS1="$orange_fg$grey_bg \u $grey_fg$darkgrey_bg$arrow"                          # Username >
+PS1+="$lightgrey_fg$darkgrey_bg \h $darkgrey_fg$darkorange_bg$arrow"            # Hostname >
+PS1+="$white_fg$darkorange_bg \W $extradarkgrey_bg$darkorange_fg$arrow"         # pwd >
+PS1+="$white_fg$extradarkgrey_bg $lambda $reset$extradarkgrey_fg$arrow $reset"  # λ >
+export PS1
+
+# ALIASES
+
+#alias ssh='/bin/ssh'
+#alias vi='vim --clean'
+alias vim='vim -S ~/.vimrc'
+alias paxing='pax -w -z -x pax -f'
+alias unpaxing='pax -ppx -rf'
+alias ls='ls -la'
+
+# Functions
+
+function listobj() {
+    echo " LISTOBJ" | amblist $1 | tr -cd "[:print:]\n\r\t"
+}
+
+function listload() {
+    echo " LISTLOAD" | amblist $1 | tr -cd "[:print:]\n\r\t"
+}
