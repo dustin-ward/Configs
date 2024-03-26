@@ -1,0 +1,214 @@
+{
+  "main": {
+    "id": "2e15c1c2d920aba6",
+    "type": "split",
+    "children": [
+      {
+        "id": "4bf82def591d738e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "878ecdb56f895de1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Work/cgo callbacks/C-Archive Mode.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ba5623e5beb06846",
+    "type": "split",
+    "children": [
+      {
+        "id": "924b5ec9b67c3978",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "353938efacddeb29",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "65429649f6de9a77",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "44fe8c16bbd7cb6e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "b9d0c2a96de0519d",
+    "type": "split",
+    "children": [
+      {
+        "id": "bfb99591369a72c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "352c6d6452baeb03",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Work/cgo callbacks/C-Archive Mode.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f0468c788f21992d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Work/cgo callbacks/C-Archive Mode.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a20195863b2f4d39",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "31b827e63655b30c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Work/cgo callbacks/C-Archive Mode.md"
+              }
+            }
+          },
+          {
+            "id": "abe66c74edb5f0d5",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "6c856f837a8a8b60",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "878ecdb56f895de1",
+  "lastOpenFiles": [
+    "HELP.md",
+    "Work/cgo callbacks/C-Archive Mode.md",
+    "Work/GOFFV2/GC Error Dumps.md",
+    "Work/cgo callbacks/Logs.md",
+    "Work/Useful CMDs.md",
+    "Work/Sqlite3/Reading the source.md",
+    "Work/Sqlite3/RTE.md",
+    "Work/Error Messages + Resolutions.md",
+    "Work/Jumpstart Tech Challenge/First Meeting with Frank.md",
+    "Work/Sqlite3/Build errors.md",
+    "Work/Acronyms.md",
+    "Work/cgo callbacks/Tests.md",
+    "Work/Jumpstart Tech Challenge/Presentation Notes.md",
+    "Work/cgo callbacks/Function Pointers.md",
+    "Work/cgo callbacks/images/img_1288.jpg",
+    "Work/cgo callbacks/Function Locations.md",
+    "Work/cgo callbacks/Scheduling Issues.md",
+    "LoveHacks24/Planning Doc.md",
+    "LoveHacks24",
+    "Work/cgo callbacks/Build Proccess.md",
+    "Work/Compiler Performance/Slow tests.md",
+    "Work/Sqlite3",
+    "Work/Compiler Performance/C Compiler Benchmarks.md",
+    "Work/Compiler Performance",
+    "Work/GOFFV2/Logs.md",
+    "Work/ZOSOpenTools/Gum Pipe Issue.md",
+    "Work/GOFFV2/Use C Variables In Go.md",
+    "Work/ZOSOpenTools",
+    "Work/GOFFV2/ESD Record Attribute Descriptions.md",
+    "Work/PIpelineAgent/Recap.md",
+    "Work/PIpelineAgent/Failing Tests.md",
+    "Work/PIpelineAgent",
+    "Work/GOFFV2",
+    "NatHacks",
+    "Work/cgo callbacks/images/Pasted image 20231103155631.png",
+    "Work/Jumpstart Tech Challenge",
+    "API-Stress-Tester",
+    "Work/cgo callbacks/images/Pasted image 20231005123329.png",
+    "Work/cgo callbacks/images/Pasted image 20231002153538.png",
+    "Work/cgo callbacks/images/Pasted image 20231002170750.png"
+  ]
+}
