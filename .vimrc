@@ -9,7 +9,7 @@
 """ PLUGINS
 call plug#begin()
 
-Plug 'liuchengxu/space-vim-dark'
+Plug 'ayu-theme/ayu-vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
@@ -40,6 +40,8 @@ set linebreak
 set noerrorbells
 set mouse=a
 set backspace=indent,eol,start
+
+set viminfo='100,<2000,s100,h
 
 
 """ REMAPS
@@ -74,11 +76,11 @@ inoremap <C-l> <C-O>l
 
 " NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
@@ -91,16 +93,19 @@ nmap <C-_> <Plug>CommentaryLine
 vmap <C-_> <Plug>Commentary
 
 " Airline
-let g:airline_theme='bubblegum'
+let g:airline_theme='zenburn'
 let g:airline_powerline_fonts = 1
 
 
 """ COLORSCHEME
-colorscheme space-vim-dark
+
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
+
 hi Comment cterm=italic
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 hi Comment guifg=#5C6370 ctermfg=59
-set termguicolors
 hi LineNr ctermbg=NONE guibg=NONE
