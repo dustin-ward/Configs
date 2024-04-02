@@ -17,8 +17,8 @@ if [[ $- == *i* ]]; then
     if [[ -f $selected ]]; then
         source $selected
     fi
-    if [[ -f $GOROOT/go-build-zos/envsetup ]]; then
-          source $GOROOT/go-build-zos/envsetup
+    if [[ -f $GOROOT/go-build-zos/bin/goz-env ]]; then
+          eval $($GOROOT/go-build-zos/bin/goz-env)
     else
           echo "Couldnt find go-build-zos..."
     fi
