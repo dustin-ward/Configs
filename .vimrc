@@ -53,6 +53,12 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Resize Window
+noremap <C-Left> <C-w><
+noremap <C-Right> <C-w>>
+noremap <C-Up> <C-w>+
+noremap <C-Down> <C-w>-
+
 " Keep search term centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
