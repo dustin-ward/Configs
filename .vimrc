@@ -6,14 +6,22 @@
 "
 " 2. :PlugInstall
 
+set nocompatible
+
 """ PLUGINS
 call plug#begin()
 
-Plug 'ayu-theme/ayu-vim'
 Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround' " ysw)
 Plug 'vim-airline/vim-airline'
+Plug 'sheerun/vim-polyglot'
+
+" Theming
+Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons' " Should be loaded last
 
 call plug#end()
 
@@ -42,10 +50,14 @@ set mouse=a
 set backspace=indent,eol,start
 
 set viminfo='100,<2000,s100,h
+set encoding=UTF-8
 
 
 """ REMAPS
 let mapleader = "\<space>"
+
+" Cycle tabs with tab
+nnoremap <Tab> :tabn<CR>
 
 " Change Window
 noremap <C-h> <C-w>h
@@ -85,6 +97,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -92,11 +105,16 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" Open copy of tree in new tabs
+autocmd BufWinEnter * silent NERDTreeMirror
 
 " Commentary
 imap <C-_> <Plug>CommentaryLine
 nmap <C-_> <Plug>CommentaryLine
 vmap <C-_> <Plug>Commentary
+
+" Tagbar
+nmap <C-m> :TagbarToggle<CR>
 
 " Airline
 let g:airline_theme='zenburn'
@@ -110,8 +128,8 @@ let ayucolor="dark"
 colorscheme ayu
 
 hi Comment cterm=italic
-hi Normal     ctermbg=NONE guibg=NONE
-hi LineNr     ctermbg=NONE guibg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
-hi Comment guifg=#5C6370 ctermfg=59
-hi LineNr ctermbg=NONE guibg=NONE
+" hi Normal     ctermbg=NONE guibg=NONE
+" hi LineNr     ctermbg=NONE guibg=NONE
+" hi SignColumn ctermbg=NONE guibg=NONE
+" hi Comment guifg=#5C6370 ctermfg=59
+" hi LineNr ctermbg=NONE guibg=NONE
