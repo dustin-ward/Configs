@@ -10,30 +10,28 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/usr/local/go
 
-SHORT_HOST="${HOSTNAME/.*/}"
-ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
+SSH_ENV="$HOME/.ssh/agent-environment"
 
-# Oh-my-zsh compatible bash ssh-agent start script
-function _start_agent() {
-    if [[ -f "$ssh_env_cache" ]]; then
-        . "$ssh_env_cache" > /dev/null
-    fi
-
-    if [[ -S "$SSH_AUTH_SOCK" ]]; then
-      return 0
-    fi
-
-    echo "Starting ssh-agent ..."
-    ssh-agent -s | sed '/^echo/d' > "$ssh_env_cache"
-    chmod 600 "$ssh_env_cache"
-    . "$ssh_env_cache" > /dev/null
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
 }
-_start_agent
 
-unset ssh_env_cache
-unset -f _start_agent
+# Source SSH settings, if applicable
 
-ssh-add ~/.ssh/id_rsa
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
