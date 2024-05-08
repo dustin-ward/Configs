@@ -10,18 +10,32 @@ export TMPDIR=/home/dustinw/tmp
 
 ### GO SELECT
 
-if [[ $- == *i* ]]; then
-    GO_DIR=/home/dustinw/GoVersions
-    go-select $GO_DIR
+function go-select() {
+    GO_DIR=$1
+    go-select_main $GO_DIR
     selected=$GO_DIR/selected
     if [[ -f $selected ]]; then
         source $selected
-    fi
-    if [[ -f $GOROOT/go-build-zos/bin/goz-env ]]; then
-          eval $($GOROOT/go-build-zos/bin/goz-env)
+
+        go_wrapper=/home/dustinw/bin/go
+        echo "export _BPXK_AUTOCVT=ON" > $go_wrapper
+        if [[ -f $GOROOT/go-build-zos/bin/goz-env ]]; then
+            # Do goz-env -o manually because not all versions of goz-env have -o...
+            echo "eval \$(${GOROOT}/go-build-zos/bin/goz-env) > /dev/null" >> $go_wrapper
+        elif [[ -f $GOROOT/go-build-zos/envsetup ]]; then
+            # Create wrapper manually for 1.18 or older...
+            echo "source ${GOROOT}/go-build-zos/envsetup > /dev/null" >> $go_wrapper
+        else
+            echo "Couldnt find go-build-zos..."
+        fi
+        echo "exec \"${GOROOT}/bin/go\" \"\$@\"" >> $go_wrapper
     else
-          echo "Couldnt find go-build-zos..."
+        echo "No Go version selected"
     fi
+}
+
+if [[ $- == *i* ]]; then
+    go-select /home/dustinw/GoVersions
 fi
 
 ### BASH PROMPT
@@ -51,12 +65,10 @@ export PS1
 
 # ALIASES
 
-#alias ssh='/bin/ssh'
-#alias vi='vim --clean'
 alias vim='vim -S ~/.vimrc'
 alias paxing='pax -w -z -x pax -f'
 alias unpaxing='pax -ppx -rf'
-alias ls='ls -la'
+alias ls='ls -lsarT'
 
 # Functions
 
@@ -66,4 +78,8 @@ function listobj() {
 
 function listload() {
     echo " LISTLOAD" | amblist $1 | tr -cd "[:print:]\n\r\t"
+}
+
+function tab2spaces() {
+    sed -i.bak $'s/\t/    /g' $1
 }
