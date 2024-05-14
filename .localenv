@@ -103,3 +103,7 @@ function listload() {
 function tab2spaces() {
     sed -i.bak $'s/\t/    /g' $1
 }
+
+function updateEnv() {
+        curl https://raw.githubusercontent.com/dustin-ward/Configs/master/.localenv -o /home/dustinw/.localenv
+}
