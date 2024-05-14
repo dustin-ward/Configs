@@ -107,3 +107,7 @@ function tab2spaces() {
 function updateEnv() {
         curl https://raw.githubusercontent.com/dustin-ward/Configs/master/.localenv -o /home/dustinw/.localenv
 }
+
+function updateVimrc() {
+        curl https://raw.githubusercontent.com/dustin-ward/Configs/master/.vimrc -o /home/dustinw/.vimrc
+}
